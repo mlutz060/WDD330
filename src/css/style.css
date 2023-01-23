@@ -220,3 +220,11 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+#callToAction{
+  width: 100%;
+  background-color: #f0a868;
+  padding: 15px;
+}
+#buttons{
+  display: flex;
+}
