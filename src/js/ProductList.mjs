@@ -1,6 +1,8 @@
 import { renderListWithTemplate } from './utils.mjs';
 
 function productCardTemplate(product) {
+    console.log(product);
+    console.log('hello2')
     return `<li class="product-card">
     <a href="product_pages/index.html?product=${product.Id}">
     <img src="${product.Image}" alt="Image of ${product.Name}"/>
@@ -17,6 +19,7 @@ export default class ProductList {
         this.listElement = listElement;
     }
     async init() {
+        console.log('hello')
         const list = await this.dataSource.getData();
         console.log(list);
         this.renderList(list);
