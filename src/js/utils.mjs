@@ -42,3 +42,28 @@ export function renderListWithTemplate(
   }
   parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 }
+
+export function renderWithTemplate(template, parentElement, data, callback) {
+  parentElement.insertAdjacentHTML('afterbegin', template);
+  if(callback) {
+    callback(data);
+  }
+}
+
+async function loadTemplate(path) {
+  const html = await fetch(path);
+  const htmlText = await html.text();
+  return htmlText;
+}
+
+export async function loadHeaderFooter() {
+  const headerPath = `../partials/header.html`;
+  const footerPath = `../partials/footer.html`;
+  const headerTemplate = await loadTemplate(headerPath);
+  const footerTemplate = await loadTemplate(footerPath);
+  const headerElement = document.getElementById('main-header');
+  const footerElement = document.getElementById('main-footer');
+
+  renderWithTemplate(headerTemplate, headerElement);
+  renderWithTemplate(footerTemplate, footerElement);
+}
