@@ -228,3 +228,61 @@ footer {
 #buttons{
   display: flex;
 }
+
+/* Animated Add To Cart Button */
+
+#addToCart{
+  cursor: pointer;
+  /* display: inline-block; */
+  position: relative;
+  transition: all 0.5s;
+  
+}
+
+#addToCart:after{
+  content: '\00bb \0020';
+  white-space:pre;
+  position: absolute;
+  opacity: 0;
+  /* top: 0; */
+  /* right: -60px; */
+  /* transition: 0.5s; */
+}
+
+#addToCart:hover{
+  padding-right: 60px ;
+  
+}
+
+#addToCart:hover:after{
+  opacity: 1;
+  right: 0;
+}
+
+/* When clicked */
+
+div button:hover{
+  background-color:#7a871b;
+  
+}
+#addToCart:active{
+  animation: addToCart .1s 1;
+}
+
+@keyframes addToCart {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-2.5deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(2.5deg); }
+  100% { transform: rotate(0deg); }
+}
+/* #addToCart:hover{
+  animation-name: ;
+} */
+
+
+
+
+
+
+/* *************************** */
