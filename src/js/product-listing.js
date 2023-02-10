@@ -1,28 +1,16 @@
+
 import ProductData from './ProductData.mjs';
 import ProductList from './ProductList.mjs';
+import { loadHeaderFooter, getParam } from './utils.mjs';
 
-const dataSource = new ProductData('tents');
+loadHeaderFooter();
+
+const category = getParam('category');
+// first create an instance of our ProductData class.
+const dataSource = new ProductData();
+// then get the element we want the product list to render in
 const element = document.querySelector('.product-list');
-const listing = new ProductList('Tents', dataSource, element);
-
-function productCategory(category){
-  
-  return `<a href="product-listing/index.html?product=${category.category}`
-}
-
-
-
-//function productCardTemplate(product) {
-//   console.log(product);
-//   console.log('hello2')
-//   return `<li class="product-card">
-//   <a href="product_pages/index.html?product=${product.Id}">
-//   <img src="${product.Image}" alt="Image of ${product.Name}"/>
-//   <h3 class="card__brand">${product.Brand.Name}</h3>
-//   <h2 class="card__name">${product.Name}</h2>
-//   <p class="product-card__price">$${product.FinalPrice}</p></a>
-// </li>`
-// }
-
-
+// then create an instance of our ProductList class and send it the correct information.
+const listing = new ProductList(category, dataSource, element);
+// finally call the init method to show our products
 listing.init();
