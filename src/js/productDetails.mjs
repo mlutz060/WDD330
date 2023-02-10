@@ -1,4 +1,4 @@
-import { setLocalStorage } from './utils.mjs';
+import { setLocalStorage, getLocalStorage } from './utils.mjs';
 
 
 function productDetailsTemplate(product){
@@ -18,8 +18,8 @@ function productDetailsTemplate(product){
     <button id="addToCart" data-id="${product.Id}">Add to Cart</button>
   </div></section>`;
 }
-export default class ProductDetails {
 
+export default class ProductDetails {
     constructor(productId, dataSource) {
         this.productId = productId;
         this.product = {};
@@ -38,10 +38,13 @@ export default class ProductDetails {
       }
 
     addProductToCart() {
-        setLocalStorage('so-cart', this.product);
+      let cartContents = getLocalStorage('so-cart');
+      if(!cartContents){
+        cartContents = [];
+      }
+      cartContents.push(this.product);
+      setLocalStorage('so-cart', cartContents);
     }
-
-
 
     renderProductDetails(selector) {
       const element = document.querySelector(selector);
