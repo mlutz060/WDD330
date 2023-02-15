@@ -37,7 +37,7 @@ export default class ProductDetails {
         
       }
 
-    addProductToCart() {
+    addToCart() {
       let cartContents = getLocalStorage('so-cart');
       if(!cartContents){
         cartContents = [];
@@ -51,7 +51,6 @@ export default class ProductDetails {
       element.insertAdjacentHTML(
         'afterBegin',
         productDetailsTemplate(this.product)
-      );
-        
-      }
+      ); 
+    }
 }
