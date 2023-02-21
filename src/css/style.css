@@ -244,6 +244,8 @@ footer {
   display: flex;
 }
 
+
+
 /* Animated Add To Cart Button */
 
 #addToCart{
@@ -251,7 +253,6 @@ footer {
   /* display: inline-block; */
   position: relative;
   transition: all 0.5s;
-  
 }
 
 #addToCart:after{
@@ -259,14 +260,10 @@ footer {
   white-space:pre;
   position: absolute;
   opacity: 0;
-  /* top: 0; */
-  /* right: -60px; */
-  /* transition: 0.5s; */
 }
 
 #addToCart:hover{
   padding-right: 60px ;
-  
 }
 
 #addToCart:hover:after{
@@ -274,13 +271,14 @@ footer {
   right: 0;
 }
 
-/* When clicked */
-
 div button:hover{
   background-color:#7a871b;
-  
+
 }
-#addToCart:active{
+
+/* When clicked */
+
+#addToCartShake{
   animation: addToCart .1s 1;
 }
 
@@ -291,13 +289,19 @@ div button:hover{
   75% { transform: rotate(2.5deg); }
   100% { transform: rotate(0deg); }
 }
-/* #addToCart:hover{
-  animation-name: ;
-} */
+
+/* CART ICON ANIMATION */
+.cartShake:hover, .cartShaking{
+  animation: cart .3s ;
+}
 
 
-
-
-
+@keyframes cart {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
 
 /* *************************** */

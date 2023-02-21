@@ -1,7 +1,8 @@
-import { setLocalStorage, getLocalStorage } from './utils.mjs';
-
+import { doc } from 'prettier';
+import { setLocalStorage, getLocalStorage} from './utils.mjs';
 
 function productDetailsTemplate(product){
+
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
   <h2 class="divider">${product.NameWithoutBrand}</h2>
   <img
@@ -16,8 +17,10 @@ function productDetailsTemplate(product){
   </p>
   <div class="product-detail__add">
     <button id="addToCart" data-id="${product.Id}">Add to Cart</button>
-  </div></section>`;
+  </div></section>`
 }
+
+export default class ProductDetails {
 
 export default class ProductDetails {
     constructor(productId, dataSource) {
@@ -37,20 +40,45 @@ export default class ProductDetails {
         
       }
 
+    // Adds an item to the cart. Also calls animation methods to add the add to cart icon.
     addToCart() {
-      let cartContents = getLocalStorage('so-cart');
-      if(!cartContents){
-        cartContents = [];
-      }
-      cartContents.push(this.product);
-      setLocalStorage('so-cart', cartContents);
+      console.log(this.product);
+      console.log("clicked add to cart");
+      this.addProductToCart();
+      this.addCartShake();
+      setTimeout(() => {this.removeCartShake()}, 2000);
     }
 
-    renderProductDetails(selector) {
+    // Adds product to cart
+    addProductToCart() {
+        let cartItems = getLocalStorage('so-cart') || [];
+        if(!Array.isArray(cartItems)){
+          cartItems = [cartItems];
+        }
+        cartItems.push(this.product);
+        setLocalStorage('so-cart', cartItems);
+    }
+
+    // Adds a shake animaition to the cart icon.
+    addCartShake(){
+      let element = document.querySelector(".cart");
+      element.classList.add("cartShaking");
+    }
+    // Removes the shake animation fromt he cart icon.
+    removeCartShake(){
+      let element = document.querySelector(".cartShaking");
+      element.classList.remove("cartShaking");
+    }
+
+    async renderProductDetails(selector) {
       const element = document.querySelector(selector);
-      element.insertAdjacentHTML(
+      await element.insertAdjacentHTML(
         'afterBegin',
         productDetailsTemplate(this.product)
-      ); 
+      );
+
+      if (document.getElementById("addToCart")) {
+        console.log(document.getElementById('addToCart'))
+      }
     }
 }
