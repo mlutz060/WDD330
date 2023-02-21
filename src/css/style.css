@@ -146,6 +146,21 @@ button {
 .product-card p {
   margin: 0.5em 0;
 }
+#product-icons{
+  display: flex;
+  justify-content: space-around;
+}
+#product-icons div {
+  width: 70%;
+}
+#product-icons img{
+  width: 75%;
+  margin: 0 auto;
+  display: block;
+}
+#product-icons h3{
+  text-align: center;
+}
 
 .card__brand {
   font-size: var(--small-font);
