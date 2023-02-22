@@ -60,40 +60,52 @@
 
     <main class="divider">
       <section class="products">
+        <div class="cartCount">
         <h2>My Cart</h2>
-
-        <ul class="product-list">
-          <!-- <li class="cart-card divider">
-            <a href="product_pages/marmot-ajax-3.html" class="cart-card__image">
-              <img
-                src="images/tents/marmot-ajax-tent-3-person-3-season-in-pale-pumpkin-terracotta~p~880rr_01~320.jpg"
-                alt="Marmot Ajax tent"
-              />
-            </a>
-            <a href="product_pages/marmot-ajax-3.html">
-              <h2 class="card__name">Marmot Ajax Tent - 3-Person, 3-Season</h2>
-            </a>
-            <p class="cart-card__color">Pale Pumpkin/Terracotta</p>
-            <p class="cart-card__quantity">qty: 1</p>
-            <p class="cart-card__price">$199.99</p>
-          </li>
-          <li class="cart-card divider">
-            <a href="product_pages/marmot-ajax-3.html" class="cart-card__image">
-              <img
-                src="images/tents/the-north-face-talus-tent-4-person-3-season-in-golden-oak-saffron-yellow~p~985rf_01~320.jpg"
-                alt="Talus Tent - 4-Person, 3-Season"
-              />
-            </a>
-            <a href="product_pages/marmot-ajax-3.html">
-              <h2 class="card__name">
-                The North Face Talus Tent - 4-Person, 3-Season
-              </h2></a
-            >
-            <p class="cart-card__color">Golden Oak/Saffron Yellow</p>
-            <p class="cart-card__quantity">qty: 1</p>
-            <p class="cart-card__price">$199.99</p>
-          </li> -->
-        </ul>
+        </div>
+        <div id="products">
+          <ul class="product-list">
+          </ul>
+      </div>
+      </section>
+      <section id="checkout">
+        <fieldset id="customerInformation">Customer Information
+          <form action="" method="post">
+            <label for="name">Name: </label>
+            <br>
+            <input type="text" require id="name">
+            <br>
+            <label for="address">Address</label>
+            <br>
+            <input type="text" require id="address">
+          </fieldset>
+          <fieldset>Card Information
+              <label for="number">Card Number:</label>
+              <br>
+              <input require type="number" id="number">
+              <br>
+              <label for="expiration">Expiration Date: </label>
+              <br>
+              <input require type="date" id="expiration">
+              <br>
+              <label for="securityCode">Security Code:</label>
+              <br>
+              <input require type="number" max="3">
+          <fieldset>
+            <h3>Order Summary:</h3>
+            <div class="cardCount2">
+            <p>Item Subtotal:</p>
+            </div>
+            <br>
+            <span>Shipping Estimate: </span>
+            <br>
+            <span>Tax: </span>
+            <br>
+            <span>Total: </span>
+          </fieldset>
+            <button type="submit">Submit</button>
+          </form>
+        </fieldset>
       </section>
     </main>
 

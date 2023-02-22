@@ -276,6 +276,14 @@ div button:hover{
 
 }
 
+/*Checkout CSS*/
+#customerInformation{
+  padding: 20px;
+}
+#customerInformation button{
+  margin-top: 20px;
+}
+
 /* When clicked */
 
 #addToCartShake{

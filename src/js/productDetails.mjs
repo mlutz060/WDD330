@@ -1,4 +1,3 @@
-import { doc } from 'prettier';
 import { setLocalStorage, getLocalStorage} from './utils.mjs';
 
 function productDetailsTemplate(product){
@@ -21,8 +20,6 @@ function productDetailsTemplate(product){
 }
 
 export default class ProductDetails {
-
-export default class ProductDetails {
     constructor(productId, dataSource) {
         this.productId = productId;
         this.product = {};
@@ -43,7 +40,7 @@ export default class ProductDetails {
     // Adds an item to the cart. Also calls animation methods to add the add to cart icon.
     addToCart() {
       console.log(this.product);
-      console.log("clicked add to cart");
+      console.log('clicked add to cart');
       this.addProductToCart();
       this.addCartShake();
       setTimeout(() => {this.removeCartShake()}, 2000);
