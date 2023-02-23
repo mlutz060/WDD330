@@ -236,6 +236,8 @@ footer {
   padding: 1em;
 }
 #callToAction{
+  display: flex;
+  gap: 50px;
   width: 100%;
   background-color: #f0a868;
   padding: 15px;
