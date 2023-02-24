@@ -10,7 +10,7 @@ async function renderCartContents() {
 function countCartContents(){
   const element = document.createElement('span');
   element.innerHTML = getLocalStorage('so-cart').length;
-  const div = document.querySelectorAll('.cartCount');
+  const div = document.querySelector('.cartCount');
   div.appendChild(element);
 }
 
