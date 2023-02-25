@@ -41,3 +41,16 @@ function cartItemTemplate(item) {
 }
 
 renderCartContents();
+
+function calcSubtotal() {
+  let subtotal = 0;
+  const items = [getLocalStorage('so-cart')];
+  console.log(items);
+  items[0].forEach((item)=>{
+    console.log(item.ListPrice);
+    subtotal += item.ListPrice;
+  })
+  console.log(subtotal);
+}
+
+calcSubtotal();
