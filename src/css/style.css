@@ -315,3 +315,33 @@ div button:hover{
 }
 
 /* *************************** */
+
+
+
+/* Checkout CSS */
+
+.cart-card {
+  width: 100%;
+  grid-column-gap: 20px;
+}
+
+.cart-card p {
+  margin: 15px 0px;
+}
+
+.list-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+}
+
+.list-footer a {
+  display: block;
+  width: fit-content;
+  margin: auto;
+  text-decoration: none;
+  color: white;
+  background-color: #f0a868;
+  padding: 10px 12px;
+  border-radius: 5px;
+}
