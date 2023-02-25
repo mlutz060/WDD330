@@ -50,7 +50,16 @@ function calcSubtotal() {
     console.log(item.ListPrice);
     subtotal += item.ListPrice;
   })
-  console.log(subtotal);
+  console.log('Subtotal: ' + subtotal);
+  return subtotal;
 }
 
-calcSubtotal();
+function displaySubtotal() {
+  const element = document.getElementById('subtotal');
+  const subtotal = calcSubtotal();
+  element.textContent = `Item Subtotal: $${subtotal}`;
+}
+
+if (getLocalStorage('so-cart').length > 0){
+  displaySubtotal();
+}
