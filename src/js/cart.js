@@ -41,3 +41,25 @@ function cartItemTemplate(item) {
 }
 
 renderCartContents();
+
+function calcSubtotal() {
+  let subtotal = 0;
+  const items = [getLocalStorage('so-cart')];
+  console.log(items);
+  items[0].forEach((item)=>{
+    console.log(item.ListPrice);
+    subtotal += item.ListPrice;
+  })
+  console.log('Subtotal: ' + subtotal);
+  return subtotal;
+}
+
+function displaySubtotal() {
+  const element = document.getElementById('subtotal');
+  const subtotal = calcSubtotal();
+  element.textContent = `Item Subtotal: $${subtotal}`;
+}
+
+if (getLocalStorage('so-cart').length > 0){
+  displaySubtotal();
+}
