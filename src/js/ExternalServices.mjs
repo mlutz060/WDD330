@@ -4,7 +4,7 @@ async function convertToJson(res) {
   if (res.ok) {
     return data;
   } else {
-    throw { name: "servicesError", message: data };
+    throw { name: 'servicesError', message: data };
   }
 }
 
@@ -32,5 +32,8 @@ export default class ExternalServices {
       body: JSON.stringify(payload),
     };
     return await fetch(baseURL + "checkout/", options).then(convertToJson);
+  }
+  loginRequest(creds){
+    
   }
 }
