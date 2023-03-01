@@ -1,4 +1,9 @@
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import {
+  setLocalStorage,
+  getLocalStorage,
+  alertMessage,
+  removeAllAlerts,
+} from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
 const services = new ExternalServices();
@@ -84,11 +89,18 @@ export default class CheckoutProcess {
     json.shipping = this.shipping;
     json.items = packageItems(this.list);
     console.log(json);
-    setLocalStorage('so-cart', 0);
     try {
       const res = await services.checkout(json);
       console.log(res);
+      setLocalStorage("so-cart", []);
+      location.assign("/checkout/success.html");
     } catch (err) {
+      // get rid of any preexisting alerts.
+      removeAllAlerts();
+      for (let message in err.message) {
+        alertMessage(err.message[message]);
+      }
+
       console.log(err);
     }
   }
