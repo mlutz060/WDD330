@@ -37,6 +37,9 @@ export default class ProductDetails {
   }
   addToCart() {
     let cartContents = getLocalStorage("so-cart");
+    //Animation
+    this.addCartShake();
+    setTimeout(() => {this.removeCartShake()}, 2000);
     //check to see if there was anything there
     if (!cartContents) {
       cartContents = [];
