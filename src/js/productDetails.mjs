@@ -45,6 +45,17 @@ export default class ProductDetails {
     cartContents.push(this.product);
     setLocalStorage("so-cart", cartContents);
   }
+  // Adds a shake animaition to the cart icon.
+  addCartShake(){
+    let element = document.querySelector('.cart');
+    element.classList.add('cartShaking');
+  }
+  // Removes the shake animation fromt he cart icon.
+  removeCartShake(){
+    let element = document.querySelector('.cartShaking');
+    element.classList.remove('cartShaking');
+  }
+
   renderProductDetails(selector) {
     const element = document.querySelector(selector);
     element.insertAdjacentHTML(
