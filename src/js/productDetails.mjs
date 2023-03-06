@@ -50,7 +50,7 @@ export default class ProductDetails {
   }
   // Adds a shake animaition to the cart icon.
   addCartShake(){
-    let element = document.querySelector('.cart');
+    let element = document.querySelector('button');
     element.classList.add('cartShaking');
   }
   // Removes the shake animation fromt he cart icon.
