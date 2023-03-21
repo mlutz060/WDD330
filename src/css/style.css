@@ -317,6 +317,23 @@ fieldset li {
   list-style-type: none;
 }
 
+.price-info {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+}
+
+.price-info p {
+  padding: 5px 0px;
+}
+
+.price-info .product-card__discount {
+  background-color: rgb(255, 71, 71);
+  color: white;
+  padding: 5px 10px;
+  width: fit-content;
+  border-radius: 5px;
+}
+
 @keyframes addToCart {
   0% { transform: rotate(0deg); }
   25% { transform: rotate(-2.5deg); }
