@@ -292,6 +292,31 @@ div button:hover{
   animation: addToCart .1s 1;
 }
 
+fieldset {
+  border-radius: .8em;
+  margin: .5em 10%;
+  padding: 0 2em 2em;
+}
+
+fieldset input, fieldset label {
+  display: block;
+}
+
+fieldset label {
+  margin: 2em 0 .5em 0;
+}
+
+fieldset input {
+  width: 100%;
+  border-radius: .5em;
+  font-size: 1.1em;
+  padding: .5em;
+}
+
+fieldset li {
+  list-style-type: none;
+}
+
 @keyframes addToCart {
   0% { transform: rotate(0deg); }
   25% { transform: rotate(-2.5deg); }
