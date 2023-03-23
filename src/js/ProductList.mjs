@@ -9,7 +9,10 @@ function productCardTemplate(product) {
   />
   <h3 class="card__brand">${product.Brand.Name}</h3>
   <h2 class="card__name">${product.Name}</h2>
-  <p class="product-card__price">$${product.FinalPrice}</p></a>
+  <div class="price-info">
+    <p class="product-card__price">$${product.FinalPrice}</p>
+    <p class="product-card__discount">You save $${Math.round(product.SuggestedRetailPrice - product.FinalPrice)}!</p>
+  </div></a>
 </li>`;
 }
 
@@ -28,6 +31,7 @@ export default class ProductList {
     this.renderList(list);
     //set the title to the current category
     document.querySelector(".title").innerHTML = this.category;
+    console.log(list);
   }
   // render after doing the first stretch
   renderList(list) {
