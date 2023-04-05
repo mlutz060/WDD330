@@ -334,6 +334,12 @@ fieldset li {
   border-radius: 5px;
 }
 
+.alert-message {
+  margin: 0;
+  display: block;
+  padding: .5em;
+}
+
 @keyframes addToCart {
   0% { transform: rotate(0deg); }
   25% { transform: rotate(-2.5deg); }
