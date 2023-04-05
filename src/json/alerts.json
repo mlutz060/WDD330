@@ -1,0 +1,5 @@
+[
+    { "message": "This is a test alert", "background": "darkblue", "color": "white"},
+    { "message": "This is a test alert", "background": "blue", "color": "white"},
+    { "message": "This is a test alert", "background": "red", "color": "white"}
+]
