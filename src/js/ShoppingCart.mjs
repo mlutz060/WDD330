@@ -37,8 +37,14 @@ export default class ShoppingCart {
   renderCartContents() {
     const cartItems = getLocalStorage(this.key);
     const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-    document.querySelector(this.parentSelector).innerHTML = htmlItems.join("");
+    //if statement for if there is a repeating item in the cart
+    for (let i =0; i < cartItems; i++){
+      if (cartItems.item.Name[i] == cartItems.item.Name[i]){
+
+      }
+    }
+    document.querySelector(this.parentSelector).innerHTML = htmlItems.join('');
     this.total = this.total.toFixed(2);
-    document.querySelector(".list-total").innerText += ` $${this.total}`;
+    document.querySelector('.list-total').innerText += ` $${this.total}`;
   }
 }

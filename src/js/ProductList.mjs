@@ -1,4 +1,4 @@
-import { renderListWithTemplate } from "./utils.mjs";
+import { renderListWithTemplate } from './utils.mjs';
 
 function productCardTemplate(product) {
   return `<li class="product-card">
@@ -27,16 +27,33 @@ export default class ProductList {
     // render the list
     this.renderList(list);
     //set the title to the current category
-    document.querySelector(".title").innerHTML = this.category;
+    document.querySelector('.title').innerHTML = this.category;
   }
   // render after doing the first stretch
   renderList(list) {
     renderListWithTemplate(productCardTemplate, this.listElement, list);
   }
+  async searchList(list) {
+    let products = []
 
-  // render before doing the stretch
-  // renderList(list) {
-  //   const htmlStrings = list.map(productCardTemplate);
-  //   this.listElement.insertAdjacentHTML("afterbegin", htmlStrings.join(""));
-  // }
+    searchInput.addEventListener("search", e => {
+      const value = e.target.value
+      list.forEach(product=> {
+        const isVisible = list.Name.includes(value) || product.Name.includes(value)
+      })
+    } )
+    .then(res => res.json())
+    .then(data => {
+      data.forEach(product =>{
+        const card = productCardTemplate.contentcloneNode(true).children[0]
+        const header = card.querySelector('.card__name')
+        const body = card.querySelector('.product-card')
+        header.textContent = product.
+        body.textContent = product. 
+        productCardTemplate.append(card)
+        return { name: product.Name, image: product.Images.PrimaryMedium,
+           price: product.FinalPrice, element: card}
+      })
+    })
+  }
 }
